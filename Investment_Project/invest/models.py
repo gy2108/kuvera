@@ -1,3 +1,6 @@
 from django.db import models
+import datetime
 
-# Create your models here.
+# class InvestItem(models.Model):
+#     date = models.DateField(("Date"))
+#     amount = models.IntegerField()
