@@ -1,17 +1,10 @@
-<h3>Investment Calc App</h3>
 
-<form action="/calculate/" method="GET">
-    <!-- <label for="name">Investment Amount</label>
-    <input type="number" id="name" name="investment-amount"/>
-    <br>
-    <label for="date">Date of Investment</label>
-    <input type="date" id="date" name="investment-date" min="2015-04-01"/> -->
-    {{form.as_p}}
-    <input type="Submit" name="Submit" value="Calculate"/>
-</form>
-
-
-{% if Submit == "Calculate"  %} 
-<h1> Amoutn invested is {{ amt }}</h1>
-<h1> Invested date is {{ date }}</h1>
-{% endif %}
+<div class="container">
+    <h3>Investment Calc App</h3>
+    <form method="post">
+        {% csrf_token %} 
+        {{form.as_p}}
+        <button type="Submit">Submit</button>
+    </form>
+    <h4>{{ amount }}</h4>
+</div>

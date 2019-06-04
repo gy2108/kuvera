@@ -18,7 +18,6 @@ from django.urls import path
 from invest.views import InvestmentView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('investment/', InvestmentView.as_view()),
-    path('calclate/',InvestmentView.as_view()),
 ]

@@ -12,14 +12,13 @@ class InvestmentView(TemplateView):
         form = InvestmentForm()
         return render(request, self.template_name, {'form':form})
 
-class CalcView(TemplateView):
-    def get(self, request):
-        print("============")
-        if request.method == 'GET':
-            form = InvestmentForm(request.GET)
+    def post(self, request):
+        if request.method == 'POST':
+            print(request.POST)
+            form = InvestmentForm(request.POST)
             if form.is_valid():
                 investor_amount = form.cleaned_data['investor_amount']
-                investment_date = form.cleaned_date['investment_date']
+                investment_date = form.cleaned_data['investment_date']
 
-                context={'amt':investor_amount,'date':investment_date}
+                context={'form':form,'amount':investor_amount}
                 return render(request, self.template_name, context)
