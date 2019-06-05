@@ -4,6 +4,5 @@ import datetime
 
 class InvestmentForm(forms.Form):
     investor_amount = forms.IntegerField(help_text="Enter the Amount to invest", required=True)
-    investment_date = forms.DateField(initial=datetime.date.today, 
-        widget=forms.widgets.DateInput(format = '%d-%b-%Y'),help_text="Enter a Date In Format(01 Jan 2019)",
-        input_formats=('%d-%b-%Y',), required=True) 
+    investment_date = forms.DateField(initial=datetime.date.today,
+                        help_text="Enter a Date In 'YYYY-MM-DD' format after '2016-04-01'",required=True) 
