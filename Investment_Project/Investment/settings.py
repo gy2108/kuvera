@@ -25,7 +25,7 @@ SECRET_KEY = 'bwwt%k9&v^*b@b-oa3h#1oxfs@^i^xduxu(hie31nnxhz_(rz+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gopalyadav.pythonanywhere.com']
 
 
 # Application definition
