@@ -29,10 +29,11 @@ class InvestmentView(TemplateView):
                 if response.status_code==200:
                     with open('NAV_VALUES.txt', 'w+', encoding="utf-8") as f:
                         f.write(response.text.strip())
-                else:
-                    pass
                 amount = self.calculate_investment(investor_amount, investment_date, date_today)
-                context={'form':form,'amount':amount}
+                context={'form':form,'amount':amount}   
+                return render(request, self.template_name, context)
+            else:
+                context = {'form':form}
                 return render(request, self.template_name, context)
 
 
