@@ -24,7 +24,6 @@ class InvestmentView(TemplateView):
                 # investment_date = date_split[-1]+'-'+MONTH_DICT[date_split[1]]+'-'+date_split[0]
                 investment_date = investment_date.strftime('%d-%b-%Y')
                 date_today = datetime.today().strftime('%d-%b-%Y')
-                date_today='31-May-2019'
                 response = requests.get('http://portal.amfiindia.com/DownloadNAVHistoryReport_Po.aspx?mf=53&tp=1&frmdt=01-Apr-2015&todt='+date_today)
                 if response.status_code==200:
                     with open('NAV_VALUES.txt', 'w+', encoding="utf-8") as f:
