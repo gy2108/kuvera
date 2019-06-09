@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .forms import InvestmentForm
-import requests
+import requests, os
 from datetime import datetime
+from django.conf import settings
+
 
 # MONTH_DICT = {'01':'Jan','02':'Feb','03':'Mar','04':'Apr','05':'May',
 #                 '06':'Jun','07':'Jul','08':'Aug','09':'Sep','10':'Oct','11':'Nov','12':'Dec'}
@@ -40,7 +42,7 @@ class InvestmentView(TemplateView):
         flag = False
         prev_nav_value=1.0
         today_nav_value=1.0
-        with open('NAV_VALUES.txt','r') as f:
+        with open(os.path.join(settings.BASE_DIR, 'NAV_VALUES.txt'),'r') as f:
             for line in f:
                 elements = line.strip().split(';')
                 if len(elements)==8 and elements[1]=='Axis Long Term Equity Fund - Direct Plan - Growth Option':
