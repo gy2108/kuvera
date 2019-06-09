@@ -28,7 +28,7 @@ class InvestmentView(TemplateView):
                 date_today = datetime.today().strftime('%d-%b-%Y')
                 response = requests.get('http://portal.amfiindia.com/DownloadNAVHistoryReport_Po.aspx?mf=53&tp=1&frmdt=01-Apr-2015&todt='+date_today)
                 if response.status_code==200:
-                    with open('NAV_VALUES.txt', 'w+', encoding="utf-8") as f:
+                    with open(os.path.join(settings.BASE_DIR,'NAV_VALUES.txt'), 'w+', encoding="utf-8") as f:
                         f.write(response.text.strip())
                 amount = self.calculate_investment(investor_amount, investment_date, date_today)
                 context={'form':form,'amount':amount}   
