@@ -5,7 +5,7 @@
     <form method="post">
         {% csrf_token %} 
         {{form.as_p}}
-        <button type="Submit">Submit</button>
+        <button type="Submit" value="submit">Submit</button>
     </form>
     <h4>This investment today is worth Rs.{{amount}}</h4>
 </div>
